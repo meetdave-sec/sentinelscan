@@ -1,4 +1,5 @@
 from scanner.port_scanner import scan_ports
+from scanner.webscanner import scan_web
 
 def main():
     print("\n==============================")
@@ -12,6 +13,8 @@ def main():
         return
     
     results = scan_ports(target)
+
+    scan_web(target)
 
     print("\n==============================")
     print("SCAN COMPLETE")
