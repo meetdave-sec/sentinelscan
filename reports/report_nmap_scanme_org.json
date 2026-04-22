@@ -1,6 +1,6 @@
 {
     "target": "nmap.scanme.org",
-    "timestamp": "2026-04-22 18:10:30.025250",
+    "timestamp": "2026-04-22 18:20:36.454450",
     "open_ports": [
         [
             22,
@@ -14,7 +14,7 @@
     "web_findings": [
         {
             "issue": "Missing Content-Security-Policy",
-            "severity": "MEDIUM",
+            "severity": "HIGH",
             "description": "Prevents XSS and injection attacks"
         },
         {
@@ -24,13 +24,13 @@
         },
         {
             "issue": "Missing X-XSS-Protection",
-            "severity": "MEDIUM",
-            "description": "Legacy XSS protection"
+            "severity": "LOW",
+            "description": "Legacy XSS protection header"
         },
         {
             "issue": "Missing Strict-Transport-Security",
-            "severity": "MEDIUM",
-            "description": "Enforces HTTPS usage"
+            "severity": "HIGH",
+            "description": "Forces HTTPS usage"
         }
     ]
 }

@@ -1,5 +1,6 @@
 import requests
 from utils.helpers import print_result
+from scanner.rules import SECURITY_HEADERS_RULES
 
 SECURITY_HEADERS = [
     "Content-Security-Policy",
@@ -33,7 +34,7 @@ def scan_web(target):
 
         for header in SECURITY_HEADERS:
             if header not in headers:
-                print_result("MEDIUM", f"Missing security header: {header}")
+                print_result("INFO", f"Missing security header: {header}")
             else:
                 print_result("OK", f"{header} is present")
 
@@ -43,19 +44,12 @@ def scan_web(target):
 
     findings = []
 
-    security_headers = {
-    "Content-Security-Policy": "Prevents XSS and injection attacks",
-    "X-Frame-Options": "Prevents clickjacking attacks",
-    "X-XSS-Protection": "Legacy XSS protection",
-    "Strict-Transport-Security": "Enforces HTTPS usage"
-    }
-
-    for header, description in security_headers.items():
+    for header, rule in SECURITY_HEADERS_RULES.items():
         if header not in headers:
             findings.append({
                 "issue": f"Missing {header}",
-                "severity": "MEDIUM",
-                "description": description
+                "severity": rule["severity"],
+                "description": rule["description"]
             })    
 
     return findings
