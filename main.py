@@ -1,7 +1,10 @@
+import uuid
+from datetime import datetime
+
 from scanner.port_scanner import scan_ports
 from scanner.webscanner import scan_web
-from reports.report_generator import save_report
 from reports.html_report import generate_html_report
+
 
 def main():
     print("\n==============================")
@@ -13,19 +16,22 @@ def main():
     if not target:
         print("[!] Invalid target. Exiting.")
         return
+ 
+    scan_id = str(uuid.uuid4())[:8]
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    print(f"\n[+] Scan ID: {scan_id}")
+    print(f"[+] Timestamp: {timestamp}")
 
     open_ports = scan_ports(target)
     web_findings = scan_web(target)
-
-    save_report(target, open_ports, web_findings)
+   
+    generate_html_report(target, open_ports, web_findings)
 
     print("\n==============================")
     print("SCAN COMPLETE")
     print("==============================")
 
 
-    generate_html_report(target, open_ports, web_findings)    
-
-
 if __name__ == "__main__":
-    main()             
+    main()

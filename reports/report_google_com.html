@@ -1,0 +1,41 @@
+
+    <html>
+    <head>
+        <title>SentinelScan Report - google.com</title>
+        <style>
+            body {
+                font-family: Arial;
+                background-color: #111;
+                color: #fff;
+                padding: 20px;
+            }
+            .box {
+                background: #222;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+            .high { color: red; }
+            .medium { color: orange; }
+            .low { color: yellow; }
+            .ok { color: lightgreen; }
+        </style>
+    </head>
+
+    <body>
+        <h1>SentinelScan Security Report</h1>
+        <h3>Target: google.com</h3>
+
+        <div class="box">
+            <h2>Open Ports</h2>
+            <p>80 (HTTP)</p><p>443 (HTTPS)</p>
+        </div>
+
+        <div class="box">
+            <h2>Web Vulnerabilities</h2>
+            <p class='high'>Missing Content-Security-Policy - HIGH</p><p class='high'>Missing Strict-Transport-Security - HIGH</p>
+        </div>
+
+    </body>
+    </html>
+    

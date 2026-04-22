@@ -1,0 +1,41 @@
+
+    <html>
+    <head>
+        <title>SentinelScan Report - nmap.scanme.org</title>
+        <style>
+            body {
+                font-family: Arial;
+                background-color: #111;
+                color: #fff;
+                padding: 20px;
+            }
+            .box {
+                background: #222;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+            .high { color: red; }
+            .medium { color: orange; }
+            .low { color: yellow; }
+            .ok { color: lightgreen; }
+        </style>
+    </head>
+
+    <body>
+        <h1>SentinelScan Security Report</h1>
+        <h3>Target: nmap.scanme.org</h3>
+
+        <div class="box">
+            <h2>Open Ports</h2>
+            <p>22 (SSH)</p><p>80 (HTTP)</p>
+        </div>
+
+        <div class="box">
+            <h2>Web Vulnerabilities</h2>
+            <p class='high'>Missing Content-Security-Policy - HIGH</p><p class='medium'>Missing X-Frame-Options - MEDIUM</p><p class='low'>Missing X-XSS-Protection - LOW</p><p class='high'>Missing Strict-Transport-Security - HIGH</p>
+        </div>
+
+    </body>
+    </html>
+    
