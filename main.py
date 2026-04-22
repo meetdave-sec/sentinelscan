@@ -4,11 +4,12 @@ from datetime import datetime
 from scanner.port_scanner import scan_ports
 from scanner.webscanner import scan_web
 from reports.html_report import generate_html_report
+from reports.report_generator import save_report
 
 
 def main():
     print("\n==============================")
-    print("     SENTINELSCAN v1.0")
+    print("     SENTINELSCAN")
     print("==============================\n")
 
     target = input("Enter target IP or domain: ").strip()
@@ -26,6 +27,8 @@ def main():
     open_ports = scan_ports(target)
     web_findings = scan_web(target)
    
+
+    save_report(target, open_ports, web_findings)
     generate_html_report(target, open_ports, web_findings)
 
     print("\n==============================")
