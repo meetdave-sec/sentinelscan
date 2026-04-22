@@ -1,6 +1,7 @@
 from scanner.port_scanner import scan_ports
 from scanner.webscanner import scan_web
 from reports.report_generator import save_report
+from reports.html_report import generate_html_report
 
 def main():
     print("\n==============================")
@@ -21,6 +22,9 @@ def main():
     print("\n==============================")
     print("SCAN COMPLETE")
     print("==============================")
+
+
+    generate_html_report(target, open_ports, web_findings)    
 
 
 if __name__ == "__main__":
