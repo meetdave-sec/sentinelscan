@@ -39,3 +39,23 @@ def scan_web(target):
 
     except requests.exceptions.RequestException as e:
         print(f"[ERROR] Web scan failed: {e}")
+        
+
+    findings = []
+
+    security_headers = {
+    "Content-Security-Policy": "Prevents XSS and injection attacks",
+    "X-Frame-Options": "Prevents clickjacking attacks",
+    "X-XSS-Protection": "Legacy XSS protection",
+    "Strict-Transport-Security": "Enforces HTTPS usage"
+    }
+
+    for header, description in security_headers.items():
+        if header not in headers:
+            findings.append({
+                "issue": f"Missing {header}",
+                "severity": "MEDIUM",
+                "description": description
+            })    
+
+    return findings

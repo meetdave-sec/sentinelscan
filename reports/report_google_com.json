@@ -1,0 +1,26 @@
+{
+    "target": "google.com",
+    "timestamp": "2026-04-22 18:10:56.967460",
+    "open_ports": [
+        [
+            80,
+            "HTTP"
+        ],
+        [
+            443,
+            "HTTPS"
+        ]
+    ],
+    "web_findings": [
+        {
+            "issue": "Missing Content-Security-Policy",
+            "severity": "MEDIUM",
+            "description": "Prevents XSS and injection attacks"
+        },
+        {
+            "issue": "Missing Strict-Transport-Security",
+            "severity": "MEDIUM",
+            "description": "Enforces HTTPS usage"
+        }
+    ]
+}

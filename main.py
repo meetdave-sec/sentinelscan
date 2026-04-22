@@ -1,5 +1,6 @@
 from scanner.port_scanner import scan_ports
 from scanner.webscanner import scan_web
+from reports.report_generator import save_report
 
 def main():
     print("\n==============================")
@@ -9,24 +10,17 @@ def main():
     target = input("Enter target IP or domain: ").strip()
 
     if not target:
-        print("[!] Invalid target. Exiting")
+        print("[!] Invalid target. Exiting.")
         return
-    
-    results = scan_ports(target)
 
-    scan_web(target)
+    open_ports = scan_ports(target)
+    web_findings = scan_web(target)
+
+    save_report(target, open_ports, web_findings)
 
     print("\n==============================")
     print("SCAN COMPLETE")
     print("==============================")
-
-    if results: 
-        print("\nOpen ports found")
-        for port, service in results:
-            print(f" - {port} ({service})")
-
-    else:
-        print("No common open ports detected.") 
 
 
 if __name__ == "__main__":

@@ -1,0 +1,36 @@
+{
+    "target": "nmap.scanme.org",
+    "timestamp": "2026-04-22 18:10:30.025250",
+    "open_ports": [
+        [
+            22,
+            "SSH"
+        ],
+        [
+            80,
+            "HTTP"
+        ]
+    ],
+    "web_findings": [
+        {
+            "issue": "Missing Content-Security-Policy",
+            "severity": "MEDIUM",
+            "description": "Prevents XSS and injection attacks"
+        },
+        {
+            "issue": "Missing X-Frame-Options",
+            "severity": "MEDIUM",
+            "description": "Prevents clickjacking attacks"
+        },
+        {
+            "issue": "Missing X-XSS-Protection",
+            "severity": "MEDIUM",
+            "description": "Legacy XSS protection"
+        },
+        {
+            "issue": "Missing Strict-Transport-Security",
+            "severity": "MEDIUM",
+            "description": "Enforces HTTPS usage"
+        }
+    ]
+}
